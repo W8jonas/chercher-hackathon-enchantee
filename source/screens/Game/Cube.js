@@ -6,7 +6,7 @@ import { Directions, FlingGestureHandler, PanGestureHandler, RectButton, TapGest
 import { Rect } from 'react-native-svg';
 
 
-export function Cube() {
+export function Cube({replyQuestion, options}) {
     const rotateBottom = useRef(new Animated.Value(0)).current;
 
     function _moveBottom(duration, delay) {
@@ -30,11 +30,17 @@ export function Cube() {
     function moveTop() {
         rotateBottom.setValue(1)
         _moveTop(200, 0)
+        replyQuestion(options[0])
     }
 
     function moveBottom() {
         rotateBottom.setValue(0)
         _moveBottom(200, 0)
+        replyQuestion(options[1])
+        
+        // setTimeout(() => {
+        //     _moveTop(20, 0)
+        // }, 400);
     }
 
 	return (
@@ -46,7 +52,7 @@ export function Cube() {
                     moveTop()
                 }}
             >
-                <View style={{height: 150, width: 250, backgroundColor: 'rgba(22, 22, 22, 0.1)', position: 'relative', top: 300, zIndex: 5}} />
+                <View style={{height: 150, width: 250, backgroundColor: 'rgba(22, 22, 22, 0.1)', position: 'relative', top: 270, zIndex: 5}} />
             </FlingGestureHandler>
 
             <Animated.View
@@ -64,12 +70,16 @@ export function Cube() {
                     {
                         top: rotateBottom.interpolate({
                             inputRange: [0, 1],
-                            outputRange: [295, 445],
+                            outputRange: [295 - 50, 445 - 50],
                         })
                     },
                 ]}
                 >
-                <Text style={{fontSize: 18, fontWeight: 'bold', color: 'white', alignSelf: 'center', textAlign: 'center'}}>Textoo!!!</Text>
+
+                <Text 
+                style={{fontSize: 22, fontWeight: 'bold', color: 'white', alignSelf: 'center', textAlign: 'center'}}>
+                    {options[0]}
+                </Text>
             </Animated.View>
             
             <Animated.View
@@ -86,11 +96,13 @@ export function Cube() {
                     {
                         top: rotateBottom.interpolate({
                             inputRange: [0, 1],
-                            outputRange: [350, 300],
+                            outputRange: [350 - 50, 300 - 50],
                         })
                     },
                 ]}
-            />
+                >
+                <Text style={{fontSize: 22, fontWeight: 'bold', color: 'white', alignSelf: 'center', textAlign: 'center'}}>{options[1]}</Text>
+            </Animated.View>
 
             <Animated.View
                 style={[
@@ -107,7 +119,7 @@ export function Cube() {
                     {
                         top: rotateBottom.interpolate({
                             inputRange: [0, 1],
-                            outputRange: [443, 295],
+                            outputRange: [443 - 50, 295 - 50],
                         })
                     },
                     {opacity: rotateBottom.interpolate({
@@ -116,10 +128,10 @@ export function Cube() {
                     })}
                 ]}
             >
-                <Text style={{fontSize: 18, fontWeight: 'bold', color: 'white', alignSelf: 'center', textAlign: 'center'}}>Textoo!!!</Text>
+                <Text style={{fontSize: 22, fontWeight: 'bold', color: 'white', alignSelf: 'center', textAlign: 'center'}}>{options[1]}</Text>
             </Animated.View>
 
-            <View style={{height: 500}} />
+            <View style={{height: 600}} />
 
             <FlingGestureHandler
                 enabled
@@ -128,7 +140,7 @@ export function Cube() {
                     moveBottom()
                 }}
             >
-                <View style={{height: 150, width: 250, backgroundColor: 'rgba(22, 22, 22, 0.1)', position: 'relative', top: -150, zIndex: 5}} />
+                <View style={{height: 150, width: 250, backgroundColor: 'rgba(22, 22, 22, 0.1)', position: 'relative', top: -290, zIndex: 5}} />
             </FlingGestureHandler>
 		</View>
 	);
