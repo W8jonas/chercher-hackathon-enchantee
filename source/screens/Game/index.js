@@ -4,13 +4,14 @@ import { Cube } from './Cube';
 
 import setaEsq from './setaEsq.png'
 import coin from './coin.png'
+import heart from './heart.png'
 import bg from './bg.png'
 
 
 const vermTrans = 'rgba(206, 17, 39, 0.68)'
 
 
-export function Index() {
+export function Game() {
 	return (
 		<ImageBackground source={bg} style={styles.container}>
 
@@ -25,18 +26,17 @@ export function Index() {
             </View>
 
             <View style={styles.questionContainer}>
-                <Text style={{padding: 5, backgroundColor: vermTrans, borderRadius: 20, color: 'white', fontSize: 16}}> 1 </Text>
+                <Text style={{padding: 8, backgroundColor: vermTrans, borderRadius: 20, color: 'white', fontSize: 18}}> 1 </Text>
 
-                <View style={{width: '80%', backgroundColor: vermTrans, borderRadius: 8, elevation: 5, height: 35, justifyContent: 'center', paddingHorizontal: 5}}>
-                    <Text style={{color: 'white', fontSize: 17}} >Culinária típica francesa?</Text>
+                <View style={{width: '80%', backgroundColor: vermTrans, borderRadius: 8, elevation: 5, justifyContent: 'center', paddingHorizontal: 5, paddingVertical: 6}}>
+                    <Text style={{color: 'white', fontSize: 20}} >Culinária típica francesa?</Text>
                 </View>
             </View>
-            <Text style={{position: 'relative', top: 50, color: 'white', fontSize: 17, alignSelf: 'flex-start', paddingHorizontal: 90}}>Texto francaes?</Text>
+            <Text style={{position: 'relative', top: 50, color: 'white', fontSize: 21, alignSelf: 'flex-start', paddingHorizontal: 90}}>Texto francaes?</Text>
 
             <View style={{width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', position: 'absolute', top: 230, paddingHorizontal: 10}}>
-                
                 <View style={{alignItems: 'center'}}>
-                    <Image source={coin}  style={{height: 27, width: 27, marginBottom: 10}} />
+                    <Image source={heart}  style={{height: 37, width: 37, marginBottom: 1}} />
                     <Text style={styles.headerText}>3</Text>
                 </View>
 
