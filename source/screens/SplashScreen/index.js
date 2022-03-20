@@ -15,37 +15,33 @@ import { routesPaths } from '../../routes/routesPaths';
 export function SplashScreen({navigation}) {
     useEffect(() => {
         setTimeout(() => {
-            navigation.navigate(routesPaths.game)
+            navigation.navigate(routesPaths.intro)
         }, 1000);
     }, [])
 
     return (
         <View style={styles.container}>
-            <Image source={chercher} style={{ height: 142/1.1, width: 242/1.1 }} />
+            <Image source={chercher} style={{ height: 142/0.6, width: 242/0.6 }} />
 
             {/* <Image source={chercher} style={{ height: 3240/50, width: 5760/50, position: 'absolute', left: 10, bottom: 10 }} /> */}
 
             <View
                 style={{
                     height: 130,
-                    width: 130,
-                    borderRadius: 130,
+                    width: '100%',
                     position: 'absolute',
-                    top: -50,
-                    left: -50,
-                    backgroundColor: '#003466'
+                    top: 0,
+                    backgroundColor: '#102D8B'
                 }} 
             />
 
             <View
                 style={{
                     height: 130,
-                    width: 130,
-                    borderRadius: 130,
+                    width: '100%',
                     position: 'absolute',
-                    bottom: -50,
-                    right: -50,
-                    backgroundColor: '#003466'
+                    bottom: 0,
+                    backgroundColor: '#C1272D'
                 }} 
             />
         </View>
