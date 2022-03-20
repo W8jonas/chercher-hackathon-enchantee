@@ -64,11 +64,13 @@ export function Cube() {
                     {
                         top: rotateBottom.interpolate({
                             inputRange: [0, 1],
-                            outputRange: [300, 450],
+                            outputRange: [295, 445],
                         })
                     },
                 ]}
-            />
+                >
+                <Text style={{fontSize: 18, fontWeight: 'bold', color: 'white', alignSelf: 'center', textAlign: 'center'}}>Textoo!!!</Text>
+            </Animated.View>
             
             <Animated.View
                 style={[
@@ -105,7 +107,7 @@ export function Cube() {
                     {
                         top: rotateBottom.interpolate({
                             inputRange: [0, 1],
-                            outputRange: [450, 300],
+                            outputRange: [443, 295],
                         })
                     },
                     {opacity: rotateBottom.interpolate({
@@ -113,7 +115,9 @@ export function Cube() {
                         outputRange: [1, 0],
                     })}
                 ]}
-            />
+            >
+                <Text style={{fontSize: 18, fontWeight: 'bold', color: 'white', alignSelf: 'center', textAlign: 'center'}}>Textoo!!!</Text>
+            </Animated.View>
 
             <View style={{height: 500}} />
 
